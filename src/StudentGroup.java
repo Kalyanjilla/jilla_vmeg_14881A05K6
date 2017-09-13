@@ -284,7 +284,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public int getCurrentAgeByDate(int indexOfStudent) {
+	public int getCurrentAgeByDate(int indexOfStudent)throws IllegalArgumentException {
 		// Add your implementation here
 		return 0;
 	}
@@ -302,8 +302,23 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student getNextStudent(Student student) {
+	public Student getNextStudent(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException();
+		else{
+		for(int i=0;i<students.length;i++)
+		{
+		if(students[i]==student)
+		{
+		
+		return students[i+1];
+		
+		
+		}	
+		}
+		}
+			
 		return null;
 	}
 }
