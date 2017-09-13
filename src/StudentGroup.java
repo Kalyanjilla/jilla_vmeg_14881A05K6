@@ -159,18 +159,64 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void removeFromElement(Student student) {
+	public void removeFromElement(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException();
+		for(int i=0;i<students.length;i++)
+		{
+		if(students[i]==student)
+		{
+		for(int j=i+1;j<students.length;j++)
+		{
+			students[j]=null;
+		}
+		
+		break;
+			
+		}
+		}
 	}
 
 	@Override
-	public void removeToIndex(int index) {
+	public void removeToIndex(int index) throws IllegalArgumentException{
 		// Add your implementation here
+		int c=0;
+		if(index<0 || index>=students.length)
+			throw new IllegalArgumentException();
+		for(int i=index+1;i<students.length;i++)
+		{
+		students[c++]=students[i];
+		}
+		for(int i=c;i<students.length;i++)
+		{
+		students[i]=null;
+		}
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		int check=0;
+		if(student==null)
+			throw new IllegalArgumentException();
+		for(int i=0;i<students.length;i++)
+		{
+		if(students[i]==student)
+		{
+		for(int k=i+1;k<students.length;k++)
+		{
+			students[check++]=students[k];
+		}
+		
+		break;
+		}
+			
+		}
+		for(int i=check;i<students.length;i++)
+		{
+		students[i]=null;
+		}
 	}
 
 	@Override
@@ -191,9 +237,24 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getByBirthDate(Date date) {
+	public Student[] getByBirthDate(Date date)throws IllegalArgumentException {
 		// Add your implementation here
-		return null;
+		Student[] students1=new Student[students.length];
+		int check=0;
+		if(date==null)
+			throw new IllegalArgumentException();
+		else
+		{
+		Date d;
+		for(int i=0;i<students.length;i++)
+		{
+		d=students[i].getBirthDate();
+			if(d.before(date) || d.equals(date))
+				students1[check++]=students[i];
+		}
+		}
+		return students1;	
+		//return null;
 	}
 
 	@Override
