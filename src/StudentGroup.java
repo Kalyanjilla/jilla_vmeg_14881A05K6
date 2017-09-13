@@ -262,7 +262,7 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		Student[] students1=new Student[students.length];
 		int check=0;
-		if(firstdate==null || lastDate==null)
+		if(firstDate==null || lastDate==null)
 			throw new IllegalArgumentException();
 		else{
 			Date d;
