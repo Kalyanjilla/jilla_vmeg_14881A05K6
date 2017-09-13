@@ -42,6 +42,11 @@ public class Main {
 		sgroup.bubbleSort();
 		Student i4=sgroup.getStudent(0);
 		System.out.println("after sort "+i4.getId());
+		Student[] stu1=sgroup.getStudentsWithMaxAvgMark();
+		for(int i=0;i<stu1.length;i++)
+			{
+			System.out.println(stu1[i].getId()+stu1[i].getFullName());
+			}
 	}
 
 }
